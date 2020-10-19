@@ -4,7 +4,7 @@ SCILL Client SDK for PHP. APIs mostly auto generated from Swagger.
 
 ## Library
 
-The SCILL PHP library can be found in the [lib](lib/README.md) folder.
+The SCILL PHP library can be found in the [lib](lib) folder.
 
 ## Examples
 
