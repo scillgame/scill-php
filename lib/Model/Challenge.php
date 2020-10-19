@@ -57,11 +57,11 @@ class Challenge implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'challenge_id' => 'string',
-'user_challenge_id' => 'string',
 'challenge_name' => 'string',
 'challenge_duration_time' => 'int',
+'live_date' => 'string',
 'challenge_goal' => 'int',
-'challenge_current_score' => 'int',
+'user_challenge_current_score' => 'int',
 'challenge_icon' => 'string',
 'challenge_icon_hd' => 'string',
 'repeatable' => 'bool',
@@ -77,11 +77,11 @@ class Challenge implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'challenge_id' => null,
-'user_challenge_id' => null,
 'challenge_name' => null,
 'challenge_duration_time' => null,
+'live_date' => null,
 'challenge_goal' => null,
-'challenge_current_score' => null,
+'user_challenge_current_score' => null,
 'challenge_icon' => null,
 'challenge_icon_hd' => null,
 'repeatable' => null,
@@ -118,11 +118,11 @@ class Challenge implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'challenge_id' => 'challenge_id',
-'user_challenge_id' => 'user_challenge_id',
 'challenge_name' => 'challenge_name',
 'challenge_duration_time' => 'challenge_duration_time',
+'live_date' => 'live_date',
 'challenge_goal' => 'challenge_goal',
-'challenge_current_score' => 'challenge_current_score',
+'user_challenge_current_score' => 'user_challenge_current_score',
 'challenge_icon' => 'challenge_icon',
 'challenge_icon_hd' => 'challenge_icon_hd',
 'repeatable' => 'repeatable',
@@ -138,11 +138,11 @@ class Challenge implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'challenge_id' => 'setChallengeId',
-'user_challenge_id' => 'setUserChallengeId',
 'challenge_name' => 'setChallengeName',
 'challenge_duration_time' => 'setChallengeDurationTime',
+'live_date' => 'setLiveDate',
 'challenge_goal' => 'setChallengeGoal',
-'challenge_current_score' => 'setChallengeCurrentScore',
+'user_challenge_current_score' => 'setUserChallengeCurrentScore',
 'challenge_icon' => 'setChallengeIcon',
 'challenge_icon_hd' => 'setChallengeIconHd',
 'repeatable' => 'setRepeatable',
@@ -158,11 +158,11 @@ class Challenge implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'challenge_id' => 'getChallengeId',
-'user_challenge_id' => 'getUserChallengeId',
 'challenge_name' => 'getChallengeName',
 'challenge_duration_time' => 'getChallengeDurationTime',
+'live_date' => 'getLiveDate',
 'challenge_goal' => 'getChallengeGoal',
-'challenge_current_score' => 'getChallengeCurrentScore',
+'user_challenge_current_score' => 'getUserChallengeCurrentScore',
 'challenge_icon' => 'getChallengeIcon',
 'challenge_icon_hd' => 'getChallengeIconHd',
 'repeatable' => 'getRepeatable',
@@ -230,11 +230,11 @@ class Challenge implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['challenge_id'] = isset($data['challenge_id']) ? $data['challenge_id'] : null;
-        $this->container['user_challenge_id'] = isset($data['user_challenge_id']) ? $data['user_challenge_id'] : null;
         $this->container['challenge_name'] = isset($data['challenge_name']) ? $data['challenge_name'] : null;
         $this->container['challenge_duration_time'] = isset($data['challenge_duration_time']) ? $data['challenge_duration_time'] : null;
+        $this->container['live_date'] = isset($data['live_date']) ? $data['live_date'] : null;
         $this->container['challenge_goal'] = isset($data['challenge_goal']) ? $data['challenge_goal'] : null;
-        $this->container['challenge_current_score'] = isset($data['challenge_current_score']) ? $data['challenge_current_score'] : null;
+        $this->container['user_challenge_current_score'] = isset($data['user_challenge_current_score']) ? $data['user_challenge_current_score'] : null;
         $this->container['challenge_icon'] = isset($data['challenge_icon']) ? $data['challenge_icon'] : null;
         $this->container['challenge_icon_hd'] = isset($data['challenge_icon_hd']) ? $data['challenge_icon_hd'] : null;
         $this->container['repeatable'] = isset($data['repeatable']) ? $data['repeatable'] : null;
@@ -293,30 +293,6 @@ class Challenge implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets user_challenge_id
-     *
-     * @return string
-     */
-    public function getUserChallengeId()
-    {
-        return $this->container['user_challenge_id'];
-    }
-
-    /**
-     * Sets user_challenge_id
-     *
-     * @param string $user_challenge_id If this challenge is unlocked (i.e. active see type) then this is the unique id of the challenge assiociated to the user. Otherwise this is 0 or empty.
-     *
-     * @return $this
-     */
-    public function setUserChallengeId($user_challenge_id)
-    {
-        $this->container['user_challenge_id'] = $user_challenge_id;
-
-        return $this;
-    }
-
-    /**
      * Gets challenge_name
      *
      * @return string
@@ -365,6 +341,30 @@ class Challenge implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets live_date
+     *
+     * @return string
+     */
+    public function getLiveDate()
+    {
+        return $this->container['live_date'];
+    }
+
+    /**
+     * Sets live_date
+     *
+     * @param string $live_date The date this challenge should start. Use that field to create challenges that start in the future.
+     *
+     * @return $this
+     */
+    public function setLiveDate($live_date)
+    {
+        $this->container['live_date'] = $live_date;
+
+        return $this;
+    }
+
+    /**
      * Gets challenge_goal
      *
      * @return int
@@ -389,25 +389,25 @@ class Challenge implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets challenge_current_score
+     * Gets user_challenge_current_score
      *
      * @return int
      */
-    public function getChallengeCurrentScore()
+    public function getUserChallengeCurrentScore()
     {
-        return $this->container['challenge_current_score'];
+        return $this->container['user_challenge_current_score'];
     }
 
     /**
-     * Sets challenge_current_score
+     * Sets user_challenge_current_score
      *
-     * @param int $challenge_current_score Indicates how many tasks the user already has completed. Use this in combination with challenge_goal to render a nice progress bar.
+     * @param int $user_challenge_current_score Indicates how many tasks the user already has completed. Use this in combination with challenge_goal to render a nice progress bar.
      *
      * @return $this
      */
-    public function setChallengeCurrentScore($challenge_current_score)
+    public function setUserChallengeCurrentScore($user_challenge_current_score)
     {
-        $this->container['challenge_current_score'] = $challenge_current_score;
+        $this->container['user_challenge_current_score'] = $user_challenge_current_score;
 
         return $this;
     }

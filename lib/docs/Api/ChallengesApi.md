@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**activatePersonalChallenge**](ChallengesApi.md#activatepersonalchallenge) | **PUT** /api/v1/challenges/personal/activate/{appId}/{cid} | Activate a personal challenges
 [**cancelPersonalChallenge**](ChallengesApi.md#cancelpersonalchallenge) | **PUT** /api/v1/challenges/personal/cancel/{appId}/{cid} | Cancel an active personal challenges
-[**claimPersonalChallengeReward**](ChallengesApi.md#claimpersonalchallengereward) | **GET** /api/v1/challenges/personal/claim/{appId}/{cid} | Claim the reward of a finished personal challenge
+[**claimPersonalChallengeReward**](ChallengesApi.md#claimpersonalchallengereward) | **PUT** /api/v1/challenges/personal/claim/{appId}/{cid} | Claim the reward of a finished personal challenge
 [**generateWebsocketAccessToken**](ChallengesApi.md#generatewebsocketaccesstoken) | **GET** /api/v1/challenges/web-socket/generate-token | Get an access token for the Websockets server notifying of updates in real time
 [**getActivePersonalChallenges**](ChallengesApi.md#getactivepersonalchallenges) | **GET** /api/v1/challenges/personal/get-in-progress-challenges/{appId} | Get active personal challenges
 [**getPersonalChallenges**](ChallengesApi.md#getpersonalchallenges) | **GET** /api/v1/challenges/personal/get/{appId} | Get personal challenges

@@ -1,6 +1,6 @@
 <?php
 /**
- * EventPayload
+ * ChallengeWebhookPayload
  *
  * PHP version 5
  *
@@ -32,14 +32,15 @@ use \ArrayAccess;
 use \SCILL\ObjectSerializer;
 
 /**
- * EventPayload Class Doc Comment
+ * ChallengeWebhookPayload Class Doc Comment
  *
  * @category Class
+ * @description The payload sent to the users webhook.
  * @package  SCILL
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EventPayload implements ModelInterface, ArrayAccess
+class ChallengeWebhookPayload implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +49,7 @@ class EventPayload implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EventPayload';
+    protected static $swaggerModelName = 'ChallengeWebhookPayload';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +57,8 @@ class EventPayload implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user_id' => 'string',
-'session_id' => 'string',
-'event_name' => 'string',
-'event_type' => 'string',
-'meta_data' => '\SCILL\Model\EventMetaData'    ];
+        'new_challenge' => '\SCILL\Model\Challenge',
+'old_challenge' => '\SCILL\Model\Challenge'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -68,11 +66,8 @@ class EventPayload implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'user_id' => null,
-'session_id' => null,
-'event_name' => null,
-'event_type' => null,
-'meta_data' => null    ];
+        'new_challenge' => null,
+'old_challenge' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -101,11 +96,8 @@ class EventPayload implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_id' => 'user_id',
-'session_id' => 'session_id',
-'event_name' => 'event_name',
-'event_type' => 'event_type',
-'meta_data' => 'meta_data'    ];
+        'new_challenge' => 'new_challenge',
+'old_challenge' => 'old_challenge'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -113,11 +105,8 @@ class EventPayload implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'user_id' => 'setUserId',
-'session_id' => 'setSessionId',
-'event_name' => 'setEventName',
-'event_type' => 'setEventType',
-'meta_data' => 'setMetaData'    ];
+        'new_challenge' => 'setNewChallenge',
+'old_challenge' => 'setOldChallenge'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -125,11 +114,8 @@ class EventPayload implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'user_id' => 'getUserId',
-'session_id' => 'getSessionId',
-'event_name' => 'getEventName',
-'event_type' => 'getEventType',
-'meta_data' => 'getMetaData'    ];
+        'new_challenge' => 'getNewChallenge',
+'old_challenge' => 'getOldChallenge'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -189,11 +175,8 @@ class EventPayload implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
-        $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
-        $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
-        $this->container['event_type'] = isset($data['event_type']) ? $data['event_type'] : 'single';
-        $this->container['meta_data'] = isset($data['meta_data']) ? $data['meta_data'] : null;
+        $this->container['new_challenge'] = isset($data['new_challenge']) ? $data['new_challenge'] : null;
+        $this->container['old_challenge'] = isset($data['old_challenge']) ? $data['old_challenge'] : null;
     }
 
     /**
@@ -205,15 +188,6 @@ class EventPayload implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
-        }
-        if ($this->container['session_id'] === null) {
-            $invalidProperties[] = "'session_id' can't be null";
-        }
-        if ($this->container['event_name'] === null) {
-            $invalidProperties[] = "'event_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -230,121 +204,49 @@ class EventPayload implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets user_id
+     * Gets new_challenge
      *
-     * @return string
+     * @return \SCILL\Model\Challenge
      */
-    public function getUserId()
+    public function getNewChallenge()
     {
-        return $this->container['user_id'];
+        return $this->container['new_challenge'];
     }
 
     /**
-     * Sets user_id
+     * Sets new_challenge
      *
-     * @param string $user_id This is your user id. You can set this to whatever you like, either your real user id or an obfuscated user id. However you need to be consistent here. Events linked to this user id only track if challenges or battle passes are unlocked with the same user id.
+     * @param \SCILL\Model\Challenge $new_challenge new_challenge
      *
      * @return $this
      */
-    public function setUserId($user_id)
+    public function setNewChallenge($new_challenge)
     {
-        $this->container['user_id'] = $user_id;
+        $this->container['new_challenge'] = $new_challenge;
 
         return $this;
     }
 
     /**
-     * Gets session_id
+     * Gets old_challenge
      *
-     * @return string
+     * @return \SCILL\Model\Challenge
      */
-    public function getSessionId()
+    public function getOldChallenge()
     {
-        return $this->container['session_id'];
+        return $this->container['old_challenge'];
     }
 
     /**
-     * Sets session_id
+     * Sets old_challenge
      *
-     * @param string $session_id This is required if event_type is single and identifies a session. This can be anything used to group events together. For example this can be a level or a match id.
+     * @param \SCILL\Model\Challenge $old_challenge old_challenge
      *
      * @return $this
      */
-    public function setSessionId($session_id)
+    public function setOldChallenge($old_challenge)
     {
-        $this->container['session_id'] = $session_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_name
-     *
-     * @return string
-     */
-    public function getEventName()
-    {
-        return $this->container['event_name'];
-    }
-
-    /**
-     * Sets event_name
-     *
-     * @param string $event_name This is the event type as a string. These have predefined event names for many games and applications. It’s wise to use those as this allows us to analyse data and help you balancing your application or game.
-     *
-     * @return $this
-     */
-    public function setEventName($event_name)
-    {
-        $this->container['event_name'] = $event_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_type
-     *
-     * @return string
-     */
-    public function getEventType()
-    {
-        return $this->container['event_type'];
-    }
-
-    /**
-     * Sets event_type
-     *
-     * @param string $event_type This is either single or group. You can send multiple events in one request (group) or send events in sequence. Please note, that depending on your tier you might run into rate limits.
-     *
-     * @return $this
-     */
-    public function setEventType($event_type)
-    {
-        $this->container['event_type'] = $event_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets meta_data
-     *
-     * @return \SCILL\Model\EventMetaData
-     */
-    public function getMetaData()
-    {
-        return $this->container['meta_data'];
-    }
-
-    /**
-     * Sets meta_data
-     *
-     * @param \SCILL\Model\EventMetaData $meta_data meta_data
-     *
-     * @return $this
-     */
-    public function setMetaData($meta_data)
-    {
-        $this->container['meta_data'] = $meta_data;
+        $this->container['old_challenge'] = $old_challenge;
 
         return $this;
     }

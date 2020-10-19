@@ -89,7 +89,7 @@ Class | Method | HTTP request | Description
 *BattlePassesApi* | [**unlockBattlePassLevel**](docs/Api/BattlePassesApi.md#unlockbattlepasslevel) | **POST** /api/v1/battle-passes/{appId}/{bpid}/unlock | Unlock the level of a battle pass
 *ChallengesApi* | [**activatePersonalChallenge**](docs/Api/ChallengesApi.md#activatepersonalchallenge) | **PUT** /api/v1/challenges/personal/activate/{appId}/{cid} | Activate a personal challenges
 *ChallengesApi* | [**cancelPersonalChallenge**](docs/Api/ChallengesApi.md#cancelpersonalchallenge) | **PUT** /api/v1/challenges/personal/cancel/{appId}/{cid} | Cancel an active personal challenges
-*ChallengesApi* | [**claimPersonalChallengeReward**](docs/Api/ChallengesApi.md#claimpersonalchallengereward) | **GET** /api/v1/challenges/personal/claim/{appId}/{cid} | Claim the reward of a finished personal challenge
+*ChallengesApi* | [**claimPersonalChallengeReward**](docs/Api/ChallengesApi.md#claimpersonalchallengereward) | **PUT** /api/v1/challenges/personal/claim/{appId}/{cid} | Claim the reward of a finished personal challenge
 *ChallengesApi* | [**generateWebsocketAccessToken**](docs/Api/ChallengesApi.md#generatewebsocketaccesstoken) | **GET** /api/v1/challenges/web-socket/generate-token | Get an access token for the Websockets server notifying of updates in real time
 *ChallengesApi* | [**getActivePersonalChallenges**](docs/Api/ChallengesApi.md#getactivepersonalchallenges) | **GET** /api/v1/challenges/personal/get-in-progress-challenges/{appId} | Get active personal challenges
 *ChallengesApi* | [**getPersonalChallenges**](docs/Api/ChallengesApi.md#getpersonalchallenges) | **GET** /api/v1/challenges/personal/get/{appId} | Get personal challenges
@@ -106,10 +106,13 @@ Class | Method | HTTP request | Description
  - [BattlePassLevelId](docs/Model/BattlePassLevelId.md)
  - [Challenge](docs/Model/Challenge.md)
  - [ChallengeCategory](docs/Model/ChallengeCategory.md)
+ - [ChallengeWebhookPayload](docs/Model/ChallengeWebhookPayload.md)
  - [Error](docs/Model/Error.md)
+ - [EventMetaData](docs/Model/EventMetaData.md)
  - [EventPayload](docs/Model/EventPayload.md)
  - [ForeignUserIdentifier](docs/Model/ForeignUserIdentifier.md)
  - [SocketToken](docs/Model/SocketToken.md)
+ - [UnknownChallengeError](docs/Model/UnknownChallengeError.md)
 
 ## Documentation For Authorization
 

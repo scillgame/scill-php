@@ -83,13 +83,6 @@ class ChallengeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "user_challenge_id"
-     */
-    public function testPropertyUserChallengeId()
-    {
-    }
-
-    /**
      * Test attribute "challenge_name"
      */
     public function testPropertyChallengeName()
@@ -104,6 +97,13 @@ class ChallengeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "live_date"
+     */
+    public function testPropertyLiveDate()
+    {
+    }
+
+    /**
      * Test attribute "challenge_goal"
      */
     public function testPropertyChallengeGoal()
@@ -111,9 +111,9 @@ class ChallengeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "challenge_current_score"
+     * Test attribute "user_challenge_current_score"
      */
-    public function testPropertyChallengeCurrentScore()
+    public function testPropertyUserChallengeCurrentScore()
     {
     }
 
