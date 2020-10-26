@@ -1,0 +1,34 @@
+{
+    "name": "scillgame/scill-php",
+    "description": "SCILL PHP SDK",
+    "keywords": [
+        "scill", "gamification", "challenges", "battle", "passes", "battlepasses"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/scillgame/scill-php",
+    "authors": [{
+        "name": "4Players Devs",
+        "email": "support@scillgame.com",
+        "homepage": "https://www.scillgame.com"
+    }],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "squizlabs/php_codesniffer": "~2.6",
+        "friendsofphp/php-cs-fixer": "~1.12"
+    },
+    "autoload": {
+        "psr-4": { "SCILL\\" : "/lib" }
+    },
+    "autoload-dev": {
+        "psr-4": { "SCILL\\" : "lib/test/" }
+    }
+}
