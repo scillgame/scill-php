@@ -16,3 +16,10 @@ try {
 
 //$result = $scillClient->getEventsClient()->sendEvent($payload)->getStatus();
 echo($result->getStatus());
+
+$authApi = $scillClient->getAuthClient();
+$id = new \SCILL\Model\ForeignUserIdentifier(array(
+	"user_id" => "1234"
+));
+$auth = $authApi->generateAccessToken($id);
+echo ($auth->getToken());
