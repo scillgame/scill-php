@@ -34,18 +34,28 @@ class SCILLClient {
 
     /**
      * Returns a preconfigured client api instance for authorizing clients
+     * @param string $accessToken The access token created with AuthApi::generateAccessToken
+     * @see AuthApi::generateAccessToken
      * @return \SCILL\Api\AuthApi
      */
-    public function getAuthClient()
+    public function getAuthClient($accessToken = null)
     {
-        if (!$this->authClient) {
-            $config = new \SCILL\Configuration();
-            $config->setAccessToken($this->apiKey);
-            $config->setHost($this->createHostName("us"));
+    	if ($accessToken) {
+		    $config = new \SCILL\Configuration();
+		    $config->setAccessToken($accessToken ? $accessToken : $this->apiKey);
+		    $config->setHost($this->createHostName("us"));
+		    $config->setApiKey("api_key", "access_token");
+		    return new \SCILL\Api\AuthApi(null, $config);
+	    } else {
+		    if (!$this->authClient) {
+                $config = new \SCILL\Configuration();
+                $config->setAccessToken($accessToken ? $accessToken : $this->apiKey);
+                $config->setHost($this->createHostName("us"));
 
-            $this->authClient = new \SCILL\Api\AuthApi(null, $config);
-        }
-        return $this->authClient;
+                $this->authClient = new \SCILL\Api\AuthApi(null, $config);
+            }
+            return $this->authClient;
+	    }
     }
 
     /**
