@@ -7,7 +7,8 @@ $eventsApi = $scillClient->getEventsClient();
 
 try {
     $result = $scillClient->sendEvent('instant-death', '12345', '1234', array(
-        "amount" => 1
+        "amount" => 1,
+        "character_name" => "Soldier"
     ));
 } catch(\SCILL\ApiException $exception) {
     echo("Error: ".$exception->getMessage());
