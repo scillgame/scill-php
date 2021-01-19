@@ -1,20 +1,17 @@
 {
     "name": "scillgame/scill-php",
-    "description": "",
+    "description": "SCILL PHP SDK",
     "keywords": [
-        "swagger",
-        "php",
-        "sdk",
-        "api"
+        "scill", "gamification", "challenges", "battle", "passes", "battlepasses"
     ],
-    "homepage": "http://swagger.io",
-    "license": "proprietary",
-    "authors": [
-        {
-            "name": "Swagger and contributors",
-            "homepage": "https://github.com/swagger-api/swagger-codegen"
-        }
-    ],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/scillgame/scill-php",
+    "authors": [{
+        "name": "4Players Devs",
+        "email": "support@scillgame.com",
+        "homepage": "https://www.scillgame.com"
+    }],
     "require": {
         "php": ">=5.5",
         "ext-curl": "*",
