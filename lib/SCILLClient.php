@@ -74,7 +74,7 @@ class SCILLClient {
             $config->setAccessToken($this->apiKey);
             $config->setHost($this->createHostName("pcs"));
 
-            $this->eventsClient = new \SCILL\Api\ChallengesApi(null, $config);
+            $this->challengesClient = new \SCILL\Api\ChallengesApi(null, $config);
         }
         return $this->challengesClient;
     }
