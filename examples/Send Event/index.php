@@ -62,3 +62,8 @@ foreach ($battlePasses as $battlePass) {
 	echo("Battle-Pass: ".$battlePass->getBattlePassName()."\n");
 }
 echo("------------------------------------------------------------------\n");
+
+// This route requires an access token initiated auth client
+$userAuth = $scillClient->getAuthClient($accessToken);
+$topic = $userAuth->getUserChallengesNotificationTopic();
+echo($topic);
