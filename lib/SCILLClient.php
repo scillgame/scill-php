@@ -64,15 +64,16 @@ class SCILLClient {
         return $this->eventsClient;
     }
 
-    /**
-     * Returns a preconfigured client api instance for working with challenges
-     * @return \SCILL\Api\ChallengesApi
-     */
-    public function getChallengesClient()
+	/**
+	 * Returns a preconfigured client api instance for working with challenges
+	 * @param string $accessToken Access token, previously generated with the AuthApi::generateAccessToken function
+	 * @return \SCILL\Api\ChallengesApi
+	 */
+    public function getChallengesClient($accessToken)
     {
         if (!$this->challengesClient) {
             $config = new \SCILL\Configuration();
-            $config->setAccessToken($this->apiKey);
+            $config->setAccessToken($accessToken);
             $config->setHost($this->createHostName("pcs"));
 
             $this->challengesClient = new \SCILL\Api\ChallengesApi(null, $config);
@@ -82,13 +83,14 @@ class SCILLClient {
 
 	/**
 	* Returns a preconfigured client api instance for working with battle passes
+    * @param string $accessToken Access token, previously generated with the AuthApi::generateAccessToken function
 	* @return \SCILL\Api\BattlePassesApi
 	*/
-	public function getBattlePassesApi()
+	public function getBattlePassesClient($accessToken)
 	{
 	 if (!$this->battlePassesClient) {
 	     $config = new \SCILL\Configuration();
-	     $config->setAccessToken($this->apiKey);
+	     $config->setAccessToken($accessToken);
 	     $config->setHost($this->createHostName("es"));
 
 	     $this->battlePassesClient = new \SCILL\Api\BattlePassesApi(null, $config);
