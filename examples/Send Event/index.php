@@ -5,8 +5,6 @@ require_once('./vendor/autoload.php');
 $appId = "597737952688570369";
 
 $scillClient = new \SCILL\SCILLClient('ai728S-1aSdgb9GP#R]Po[P!1Z(HSSTpdULDMUAlYX', false);
-$eventsApi = $scillClient->getEventsClient();
-
 try {
     $result = $scillClient->sendEvent('instant-death', '12345', '1234', array(
         "amount" => 1,
