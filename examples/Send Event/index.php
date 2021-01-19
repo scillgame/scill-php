@@ -2,7 +2,9 @@
 
 require_once('./vendor/autoload.php');
 
-$scillClient = new \SCILL\SCILLClient('XnY,-AV+7dNGwrp!fVmP;96xAZ~,sqXJ]]8Htd4U[F', true);
+$appId = "597737952688570369";
+
+$scillClient = new \SCILL\SCILLClient('ai728S-1aSdgb9GP#R]Po[P!1Z(HSSTpdULDMUAlYX', false);
 $eventsApi = $scillClient->getEventsClient();
 
 try {
@@ -15,11 +17,50 @@ try {
 }
 
 //$result = $scillClient->getEventsClient()->sendEvent($payload)->getStatus();
-echo($result->getStatus());
+echo("Event sent status: ".$result->getStatus()."\n");
+echo("------------------------------------------------------------------\n");
 
 $authApi = $scillClient->getAuthClient();
 $id = new \SCILL\Model\ForeignUserIdentifier(array(
 	"user_id" => "1234"
 ));
 $auth = $authApi->generateAccessToken($id);
-echo ($auth->getToken());
+$accessToken = $auth->getToken();
+echo("Auth-Token: ".$accessToken."\n");
+echo("------------------------------------------------------------------\n");
+
+echo("Available Challenges"."\n");
+$challengesApi = $scillClient->getChallengesClient($accessToken);
+$categories = $challengesApi->getPersonalChallenges($appId);
+foreach ($categories as $category) {
+	echo("Category: ".$category->getCategoryName()."\n");
+	foreach($category->getChallenges() as $challenge) {
+		echo("Challenge: ".$challenge->getChallengeName()."\n");
+	}
+}
+echo("------------------------------------------------------------------\n");
+
+echo("Active Challenges"."\n");
+try
+{
+	$categories = $challengesApi->getActivePersonalChallenges($appId);
+	foreach ($categories as $category) {
+		echo("Category: ".$category->getCategoryName()."\n");
+		foreach($category->getChallenges() as $challenge) {
+			echo("Challenge: ".$challenge->getChallengeName()."\n");
+		}
+	}
+} catch (\SCILL\ApiException $e)
+{
+	echo("Error calling active challenges"."\n");
+}
+
+echo("------------------------------------------------------------------\n");
+
+echo("Available Battle Passes"."\n");
+$battlePassApi = $scillClient->getBattlePassesClient($accessToken);
+$battlePasses = $battlePassApi->getBattlePasses($appId);
+foreach ($battlePasses as $battlePass) {
+	echo("Battle-Pass: ".$battlePass->getBattlePassName()."\n");
+}
+echo("------------------------------------------------------------------\n");
