@@ -9,6 +9,7 @@ class SCILLClient {
     private $authClient;
     private $eventsClient;
     private $challengesClient;
+    private $battlePassesClient;
     private $apiKey;
     private $environment;
 
@@ -64,8 +65,8 @@ class SCILLClient {
     }
 
     /**
-     * Returns a preconfigured client api instance for sending events
-     * @return \SCILL\Api\EventsApi
+     * Returns a preconfigured client api instance for working with challenges
+     * @return \SCILL\Api\ChallengesApi
      */
     public function getChallengesClient()
     {
@@ -78,6 +79,22 @@ class SCILLClient {
         }
         return $this->challengesClient;
     }
+
+	/**
+	* Returns a preconfigured client api instance for working with battle passes
+	* @return \SCILL\Api\BattlePassesApi
+	*/
+	public function getBattlePassesApi()
+	{
+	 if (!$this->battlePassesClient) {
+	     $config = new \SCILL\Configuration();
+	     $config->setAccessToken($this->apiKey);
+	     $config->setHost($this->createHostName("es"));
+
+	     $this->battlePassesClient = new \SCILL\Api\BattlePassesApi(null, $config);
+	 }
+	 return $this->battlePassesClient;
+	}
 
     /**
      * Operation sendEvent
