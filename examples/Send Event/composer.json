@@ -24,7 +24,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "scillgame/scill-php": "dev-master"
+        "scillgame/scill-php": "dev-main"
     },
     "require-dev": {
     },
