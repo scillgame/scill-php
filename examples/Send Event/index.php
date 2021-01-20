@@ -3,12 +3,12 @@
 require_once('./vendor/autoload.php');
 
 $appId = "597737952688570369";
-
 $scillClient = new \SCILL\SCILLClient('ai728S-1aSdgb9GP#R]Po[P!1Z(HSSTpdULDMUAlYX', false);
+
 try {
-    $result = $scillClient->sendEvent('instant-death', '12345', '1234', array(
+    $result = $scillClient->sendEvent('collect-item', '12345', '1234', array(
         "amount" => 1,
-        "character_name" => "Soldier"
+        "item_type" => "chest"
     ));
 } catch(\SCILL\ApiException $exception) {
     echo("Error: ".$exception->getMessage());
